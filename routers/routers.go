@@ -2,14 +2,17 @@ package routers
 
 import (
 	"bubble/controller"
+
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRouter() *gin.Engine{
+func SetupRouter() *gin.Engine {
 	r := gin.Default()
 	// 告诉gin框架模板文件引用的静态文件去哪里找
 	r.Static("/static", "static")
+	// r.Static("/opt/todolist/static", "static")
 	// 告诉gin框架去哪里找模板文件
+	// r.LoadHTMLGlob("/opt/todolist/templates/*")
 	r.LoadHTMLGlob("templates/*")
 	r.GET("/", controller.IndexHandler)
 

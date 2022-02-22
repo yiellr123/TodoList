@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  database:
+    container_name: mysql
+    image: mysql:5.7
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=todo
+      - MYSQL_PASSWORD=root
+    # volumes:
+    #   - ./mysqldata/:/var/lib/mysql
+    #   - ./script/db/create_table.sql:/docker-entrypoint-initdb.d/create_table.sql
+    #   - ./script/db/prepare_data.sql:/docker-entrypoint-initdb.d/prepare_data.sql
